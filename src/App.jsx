@@ -3,7 +3,7 @@ import Header from './components/Header'; // Importa el componente Header
 
 function App() {
   return (
-    <div className="contenedor-principal">
+    <div className="cabecera-pagina">
       <Header /> {/* Usa el componente Header */}
       {/* Otro contenido de la aplicación */}
     </div>

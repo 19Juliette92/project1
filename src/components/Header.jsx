@@ -31,30 +31,24 @@ function Header() {
   }, []);
 
   return (
-    
-      <header className="cabecera-pagina">
-        <img src={logo} alt="Logo de INTELLIGATE" className="logo-cabecera" />
-        <div className="contenedor_dashboard_info">
-          {error && <div className="mensaje-error">{error}</div>}
-          {user && (
-            <div className="caja_info_dashboard">
-              <div className="contenido_dashboard">
-                <div className="encabezado_dashboard">
-                  <div className="titulo_encabezado_dashboard">
-                    {user.nombre_usuario}
-                  </div>
-                </div>
-                <div className="cuerpo_dashboard">
-                  <p>Bienvenido {user.nombre_usuario}</p>
-                  <a href="login/update.php">Actualizar</a>
-                  <a href="login/logout.php">Salir</a>
-                </div>
+    <header className="cabecera-pagina">
+      <img src={logo} alt="Logo de INTELLIGATE" className="logo-cabecera" />
+      <div className="contenedor_dashboard_info">
+        {error && <div className="mensaje-error">{error}</div>}
+        {user && (
+          <div className="caja_info_dashboard">
+            <div className="contenido_dashboard">
+              <div className="encabezado_dashboard">{user.nombre_usuario}</div>
+              <div className="cuerpo_dashboard">
+                <p>Bienvenido {user.nombre_usuario}</p>
+                <a href="login/update.php">Actualizar</a>
+                <a href="login/logout.php">Salir</a>
               </div>
             </div>
-          )}
-        </div>
-      </header>
-    
+          </div>
+        )}
+      </div>
+    </header>
   );
 }
 
