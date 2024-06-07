@@ -4,22 +4,25 @@
   align-items: center;
   width: 100%;
   height: auto;
-  position: fixed; /* Fija el header en la parte superior de la página */
-  top: 0;
-  left: 0;
+  margin: 0;
+  padding: 0;
+  /* position: fixed; Fija el header en la parte superior de la página */
+  /* top: 0;
+  left: 0; */
   background-color: #E0E9EE;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
 }
 
 .logo-cabecera {
   height: 200px; /* Ajusta el tamaño según necesites */
-  margin-left: 20px; /*Elimina si interfiere con la alineación */
+  margin-left: 30px; /*Elimina si interfiere con la alineación */
 }
 
 .contenedor_dashboard_info {
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+    margin-right: 30px;
 }
   
 .caja_info_dashboard {

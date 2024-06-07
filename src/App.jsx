@@ -1,10 +1,13 @@
 import React from 'react';
+import './App.css';
 import Header from './components/Header'; // Importa el componente Header
+import Menu_nav from './components/Menu_nav';
 
 function App() {
   return (
-    <div className="cabecera-pagina">
+    <div className="app-container">
       <Header /> {/* Usa el componente Header */}
+      <Menu_nav /> {/* Usa el componente Menu_nav */}
       {/* Otro contenido de la aplicación */}
     </div>
   );
