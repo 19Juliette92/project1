@@ -1,0 +1,38 @@
+.enlaces-crud a{
+    /* width: 100%; */
+    padding: 10px;
+    border: none;
+    background: #011C40;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .enlaces-crud a:hover {
+    background: #3f51b5;
+  }
+  
+  .contenedor-tabla {
+    width: 100%;
+    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd; /* Un color claro para las líneas de la tabla */
+    text-align: center;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #011C40; /* Azul para los encabezados de la tabla */
+    color: white;
+  }

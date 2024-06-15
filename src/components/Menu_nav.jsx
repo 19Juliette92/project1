@@ -1,15 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'; 
 import '../styles/Menu_nav.css';
 
 const Menu_nav = () => {
   return (
     <nav className="navegacion-principal">
       <ul>
-        <li><a href="personas/index.php">Personas</a></li>
-        <li><a href="inmuebles/index_i.php">Inmuebles</a></li>
-        <li><a href="vehiculos/index_v.php">Vehículos</a></li>
-        <li><a href="estacionamientos/index_e.php">Estacionamiento</a></li>
-        <li><a href="usuarios/index_u.php">Usuarios</a></li>
+        <li><NavLink to="/">Inicio</NavLink></li>
+        <li><NavLink to="/personas">Personas</NavLink></li>
+        <li><NavLink to="/inmuebles">Inmuebles</NavLink></li>
+        <li><NavLink to="/vehiculos">Vehículos</NavLink></li>
+        <li><NavLink to="/estacionamiento">Estacionamiento</NavLink></li>
+        <li><NavLink to="/usuarios">Usuarios</NavLink></li>
       </ul>
     </nav>
   );

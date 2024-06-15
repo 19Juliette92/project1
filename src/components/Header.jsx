@@ -7,21 +7,23 @@ function Header() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(
-      "http://localhost/projects/PDO/usuarios/api.php?apicall=readusuario",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
+    fetch("http://localhost/projects/PDO/usuarios/api.php?apicall=readusuario", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         if (data.error) {
-          setError(data.message);
+          setError(data.message || "Error desconocido al obtener los datos del usuario.");
         } else {
-          setUser(data.contenido); // Assuming the user data is returned as an object
+          setUser(data.contenido);
         }
       })
       .catch((error) => {

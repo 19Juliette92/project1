@@ -1,0 +1,71 @@
+.contenedor-agregar {
+    font-family: 'Arial', sans-serif;
+    width: 480px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #011C40;
+    border-radius: 10px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .seccion table {
+    width: 100%;
+  }
+  
+  .seccion td {
+    padding: 8px 2px;
+  }
+  
+  .secciones-formulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .input_agregar {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .seccion td:first-child {
+    width: 40%;
+    padding-right: 10px; 
+  }
+  
+  .seccion td:last-child {
+    width: 80%;
+  }
+  
+  .acciones-formulario {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .acciones-formulario input[type="submit"],
+  .acciones-formulario a {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background-color: #011C40;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .acciones-formulario input[type="submit"]:hover,
+  .acciones-formulario a:hover {
+    background-color: #0056b3;
+  }
