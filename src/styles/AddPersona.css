@@ -1,6 +1,6 @@
 .contenedor-agregar {
     font-family: 'Arial', sans-serif;
-    width: 480px;
+    width: 35%;
     margin: 30px auto;
     padding: 20px;
     background: #fff;
@@ -28,11 +28,11 @@
   }
   
   .input_agregar {
-    width: 100%;
+    display: flex;
+    width: 95%;
     padding: 8px;
-    margin-bottom: 10px;
+    border-radius: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
   }
   
   .seccion td:first-child {
@@ -53,19 +53,20 @@
     margin-top: 20px;
   }
   
-  .acciones-formulario input[type="submit"],
-  .acciones-formulario a {
-    padding: 10px 20px;
-    margin: 0 10px;
+  .button_agregar{
+    width: 30%;
     border: none;
-    background-color: #011C40;
+    background: #011C40;
     color: white;
     cursor: pointer;
+    border-radius: 6px;
     text-decoration: none;
-    font-size: 16px;
+    margin: 5px;
+    text-align: center;
   }
-  
-  .acciones-formulario input[type="submit"]:hover,
-  .acciones-formulario a:hover {
-    background-color: #0056b3;
+
+  .button_agregar:hover{
+    background: #3f51b5;
+    color: white;
   }
+

@@ -4,11 +4,14 @@ import Header from "./components/Header";
 import Menu_nav from './components/Menu_nav';
 import Home from './paginas/Home'; 
 import ListPersonas from './paginas/personas/ListPersonas'; // Asegúrate de tener estos componentes creados
-import AddPersona from './paginas/personas/AddPersona'
-// import Inmuebles from './components/Inmuebles'; // y exportados adecuadamente.
-// import Vehiculos from './components/Vehiculos';
-// import Estacionamiento from './components/Estacionamiento';
-// import Usuarios from './components/Usuarios';
+import AddPersona from './paginas/personas/AddPersona';
+import EditPersona from './paginas/personas/EditPersona';
+import ListInmuebles from './paginas/inmuebles/ListInmuebles';
+import AddInmueble from './paginas/inmuebles/AddInmueble';
+import EditInmueble from './paginas/inmuebles/EditInmueble';
+import ListVehiculos from './paginas/vehiculos/ListVehiculos';
+import AddVehiculo from './paginas/vehiculos/AddVehiculo';
+import EditVehiculo from './paginas/vehiculos/EditVehiculo';
 
 function App() {
   return (
@@ -20,11 +23,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Personas" element={<ListPersonas />} />
           <Route path="/Personas/AddPersona" element={<AddPersona />} />
-          {/* <Route path="/inmuebles" element={Inmuebles} />
-          <Route path="/vehiculos" element={Vehiculos} />
-          <Route path="/estacionamiento" element={Estacionamiento} />
-          <Route path="/usuarios" element={Usuarios} />
-          Otras rutas que necesites */}
+          <Route path="/personas/edit/:id_persona" element={<EditPersona />} />
+          <Route path="/Inmuebles" element={<ListInmuebles />} />
+          <Route path="/Inmuebles/AddInmueble" element={<AddInmueble />} />
+          <Route path="/inmuebles/edit/:id_inmueble" element={<EditInmueble />} />
+          <Route path="/Vehiculos" element={<ListVehiculos />} />
+          <Route path="/Vehiculos/AddVehiculo" element={<AddVehiculo />} />
+          <Route path="/vehiculos/edit/:placa" element={<EditVehiculo />} />
         </Routes>
       </div>
     </Router>

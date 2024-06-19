@@ -8,12 +8,12 @@
     border-radius: 4px;
     text-decoration: none;
     display: inline-block;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 20px;
   }
 
   .enlaces-crud a:hover {
     background: #3f51b5;
+    color: white;
   }
   
   .contenedor-tabla {
@@ -25,14 +25,38 @@
     width: 100%;
     border-collapse: collapse;
   }
-  
+
+  th {
+    background-color: #011C40; /* Azul para los encabezados de la tabla */
+    color: white;
+    padding: 5px;
+  }
+
   th, td {
     border: 1px solid #ddd; /* Un color claro para las líneas de la tabla */
     text-align: center;
-    padding: 8px;
   }
   
-  th {
-    background-color: #011C40; /* Azul para los encabezados de la tabla */
+  
+  .editar, .eliminar {
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: #011C40;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .editar:hover {
+    background: #009d00;
+    color: white;
+  }
+
+  .eliminar:hover {
+    background: #ff0000;
     color: white;
   }
