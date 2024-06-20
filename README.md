@@ -1,5 +1,5 @@
 
-# IntelliGate: Sistema de Gestión Residencial
+# IntelliGate: Sistema de Gestión Residencial de Acceso Vehicular
 
 ![IntelliGate Logo](https://github.com/19Juliette92/project1/blob/rama-fabian/src/assets/img/Intelligate_logo.jpg)
 
@@ -101,8 +101,6 @@ intelligate/
 
 - **React**: Librería de JavaScript para construir interfaces de usuario.
 - **Vite**: Herramienta de construcción rápida para proyectos web modernos.
-- **ESLint**: Herramienta de análisis estático para identificar problemas en el código JavaScript.
-- **Babel**: Compilador de JavaScript.
 
 ### Backend
 
