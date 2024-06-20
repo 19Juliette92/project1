@@ -68,4 +68,7 @@ Este proyecto está bajo la licencia MIT.
 
 ## Contacto
 
-Para más información, por favor contacta a Fabian Hernandez al correo fabian.hernandez@soy.sena.edu.co
+Para más información, por favor contacta a:
+- Fabian Hernandez al correo fhernandez26@soy.sena.edu.co
+- Angie Juliette Sanchez Pulido al correo angiej_sanchezp@soy.sena.edu.co 
+- Jenny Martinez Castro al correo jenny_martinezca@soy.sena.edu.co
