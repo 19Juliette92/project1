@@ -1,7 +1,7 @@
 
 # IntelliGate: Sistema de Gestión Residencial
 
-![IntelliGate Logo](https://github.com/19Juliette92/intelligate_vitereact.github.io/blob/main/src/assets/img/Intelligate_logo.jpg)
+![IntelliGate Logo](https://github.com/19Juliette92/project1/blob/rama-fabian/src/assets/img/Intelligate_logo.jpg)
 
 ## Descripción del Proyecto
 
