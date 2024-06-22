@@ -16,6 +16,32 @@
     color: white;
   }
   
+  .contenedor-busqueda {
+    margin-bottom: 20px;
+}
+
+.busqueda-input {
+  width: 50%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  background-color: #f0f0f0;
+  padding-left: 40px;
+  margin-left: 25%;
+}
+
+.busqueda-icono {
+  position: absolute;
+  margin-left: -30px;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #ccc;
+  pointer-events: none;
+}
+
   .contenedor-tabla {
     width: 100%;
     overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */

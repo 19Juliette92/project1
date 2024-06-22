@@ -73,22 +73,20 @@ const ListPersonas = () => {
                 <td>{persona.fecha_creacion}</td>
                 <td>{persona.fecha_actualizacion}</td>
                 <td>
-                  <td>
-                    <button
-                      onClick={() =>
-                        navigate(`/personas/edit/${persona.id_persona}`)
-                      }
-                      className="editar"
-                    >
-                      Editar
-                    </button>
-                    <button
-                      onClick={() => handleDelete(persona.id_persona)}
-                      className="eliminar"
-                    >
-                      Eliminar
-                    </button>
-                  </td>
+                  <button
+                    onClick={() =>
+                      navigate(`/personas/edit/${persona.id_persona}`)
+                    }
+                    className="editar"
+                  >
+                    Editar
+                  </button>
+                  <button
+                    onClick={() => handleDelete(persona.id_persona)}
+                    className="eliminar"
+                  >
+                    Eliminar
+                  </button>
                 </td>
               </tr>
             ))}

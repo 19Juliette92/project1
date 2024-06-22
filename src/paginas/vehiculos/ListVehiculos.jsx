@@ -66,7 +66,7 @@ const ListVehiculos = () => {
                 <td>{vehiculo.marca}</td>
                 <td>{vehiculo.modelo}</td>
                 <td>{vehiculo.color}</td>
-                <td>{vehiculo.tipo_vehiculo}</td>
+                <td>{vehiculo.nombre_tipo}</td>
                 <td>{vehiculo.fecha_registro}</td>
                 <td>
                   <button

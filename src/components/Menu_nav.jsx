@@ -10,7 +10,7 @@ const Menu_nav = () => {
         <li><NavLink to="/personas">Personas</NavLink></li>
         <li><NavLink to="/inmuebles">Inmuebles</NavLink></li>
         <li><NavLink to="/vehiculos">Vehículos</NavLink></li>
-        <li><NavLink to="/estacionamiento">Estacionamiento</NavLink></li>
+        <li><NavLink to="/estacionamientos">Estacionamiento</NavLink></li>
         <li><NavLink to="/usuarios">Usuarios</NavLink></li>
       </ul>
     </nav>
