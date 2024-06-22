@@ -1,0 +1,28 @@
+.pie-de-pagina {
+    background-color: #011C40   ;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.iconos-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.iconos-sociales a {
+    color: #ffffff;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.iconos-sociales a:hover {
+    color: #3f51b5;
+}
+
+.contenido-pie {
+    font-size: 14px;
+}
+
