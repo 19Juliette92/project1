@@ -10,7 +10,7 @@ const ListPersonas = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost/projects/PDO/personas/api.php?apicall=readpersona")
+      .get("http://localhost/project1/src/api/PDO/personas/api.php?apicall=readpersona")
       .then((response) => {
         setPersonas(response.data.contenido);
       })
@@ -23,7 +23,7 @@ const ListPersonas = () => {
     if (window.confirm("¿Está seguro de eliminar el registro?")) {
       axios
         .delete(
-          `http://localhost/projects/PDO/personas/api.php?apicall=deletepersona&id_persona=${id_persona}`
+          `http://localhost/project1/src/api/PDO/personas/api.php?apicall=deletepersona&id_persona=${id_persona}`
         )
         .then((response) => {
           // Actualizar la lista de personas después de eliminar
