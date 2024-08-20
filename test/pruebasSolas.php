@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once './PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
+require_once __DIR__ . '/../src/api/PDO/personas/modelojson.php';
 
 class PruebasSolas extends TestCase
 {
@@ -22,7 +22,7 @@ class PruebasSolas extends TestCase
     public function testReadPersonaModelByNumDoc()
     {
         // El número de documento que queremos leer
-        $num_doc = '1234567890'; 
+        $num_doc = '12345678'; 
 
         $tabla = 'personas';
 
@@ -40,17 +40,17 @@ class PruebasSolas extends TestCase
                 $found = true;
 
                 // Depuración: Muestra los datos recuperados
-                var_dump($persona); 
+                var_dump($persona);
 
                 // Verifica que los datos sean correctos
                 $this->assertEquals('TP001', $persona['tipo_persona']);
                 $this->assertEquals('CC', $persona['tip_doc']);
                 $this->assertEquals($num_doc, $persona['num_doc']);
-                $this->assertEquals('Carlos Andres', $persona['nombres']);
-                $this->assertEquals('Gomez Mejia', $persona['apellidos']);
-                $this->assertEquals('M', $persona['genero']);
-                $this->assertEquals('carlos.andres@example.com', $persona['email']);
-                $this->assertEquals('3109876543', $persona['telefono']);
+                $this->assertEquals('Carlos', $persona['nombres']);
+                $this->assertEquals('Gomez', $persona['apellidos']);
+                $this->assertEquals('Masculino', $persona['genero']);
+                $this->assertEquals('carlos.gomez@example.com', $persona['email']);
+                $this->assertEquals('573001234567', $persona['telefono']);
                 break;
             }
         }
