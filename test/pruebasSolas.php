@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../src/api/PDO/personas/modelojson.php';
 
-class PruebasSolas extends TestCase
+class pruebasSolas extends TestCase
 {
     private $pdo;
     private $datos;
@@ -19,43 +19,33 @@ class PruebasSolas extends TestCase
         $this->datos = new Datos($this->pdo);
     }
 
-    public function testReadPersonaModelByNumDoc()
+    public function testCreateInmuebleModel() // Cambiado el nombre del método
     {
-        // El número de documento que queremos leer
-        $num_doc = '12345678'; 
+        // Nuevos datos de prueba para un nuevo inmueble
+        $datosModel = [
+            'bloque' => 5,  // Cambiar a un valor único
+            'apto' => 404,  // Cambiar a un valor único
+            'id_titular' => 6 // Asegúrate de que este ID de titular exista en la tabla 'personas'
+        ];
+        $tabla = 'inmuebles';
 
-        $tabla = 'personas';
+        try {
+            // Llama al método para insertar el registro
+            $result = $this->datos->createInmuebleModel($datosModel, $tabla);
 
-        // Llama al método para leer el registro con el num_doc específico
-        $result = $this->datos->readPersonaModel($tabla, $num_doc); // Pasar $num_doc aquí
+            // Verifica que el método devuelva true
+            $this->assertTrue($result, "La inserción del inmueble no devolvió true");
 
-        // Verifica que el método devuelva un array y que contenga el registro correcto
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+            // Verifica que los datos se hayan insertado en la base de datos
+            $stmt = $this->pdo->query("SELECT * FROM $tabla WHERE bloque = 4 AND apto = 404");
+            $inmueble = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Busca el registro con el num_doc especificado en los resultados
-        $found = false;
-        foreach ($result as $persona) {
-            if ($persona['num_doc'] === $num_doc) {
-                $found = true;
-
-                // Depuración: Muestra los datos recuperados
-                var_dump($persona);
-
-                // Verifica que los datos sean correctos
-                $this->assertEquals('TP001', $persona['tipo_persona']);
-                $this->assertEquals('CC', $persona['tip_doc']);
-                $this->assertEquals($num_doc, $persona['num_doc']);
-                $this->assertEquals('Carlos', $persona['nombres']);
-                $this->assertEquals('Gomez', $persona['apellidos']);
-                $this->assertEquals('Masculino', $persona['genero']);
-                $this->assertEquals('carlos.gomez@example.com', $persona['email']);
-                $this->assertEquals('573001234567', $persona['telefono']);
-                break;
-            }
+            $this->assertNotFalse($inmueble, "No se encontraron registros para el nuevo inmueble");
+            $this->assertEquals($datosModel['bloque'], $inmueble['bloque']);
+            $this->assertEquals($datosModel['apto'], $inmueble['apto']);
+            $this->assertEquals($datosModel['id_titular'], $inmueble['id_titular']);
+        } catch (Exception $e) {
+            $this->fail("Excepción al crear o verificar el inmueble: " . $e->getMessage());
         }
-
-        // Verifica que el registro haya sido encontrado
-        $this->assertTrue($found);
     }
 }

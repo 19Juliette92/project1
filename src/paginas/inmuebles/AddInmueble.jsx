@@ -24,7 +24,7 @@ const AddInmueble = () => {
     console.log("Submitting form:", form); // Log the form data before submission
     try {
       const response = await axios.post(
-        "http://localhost/projects/PDO/inmuebles/api.php?apicall=createinmueble",
+        "http://localhost/project1/src/api/PDO/inmuebles/api.php?apicall=createinmueble",
         form
       );
       console.log("Server response:", response); // Log the response from the server
