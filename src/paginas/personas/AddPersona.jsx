@@ -29,7 +29,7 @@ const AddPersona = () => {
     console.log("Submitting form:", form); // Log the form data before submission
     try {
       const response = await axios.post(
-        "http://localhost/projects/PDO/personas/api.php?apicall=createpersona",
+        "http://localhost/project1/src/api/PDO/personas/api.php?apicall=createpersona",
         form
       );
       console.log("Server response:", response); // Log the response from the server

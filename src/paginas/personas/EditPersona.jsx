@@ -21,7 +21,7 @@ const EditPersona = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost/projects/PDO/personas/api.php?apicall=readpersona&id_persona=${id_persona}`
+          `http://localhost/project1/src/api/PDO/personas/api.php?apicall=readpersona&id_persona=${id_persona}`
         );
         if (response.data && !response.data.error && response.data.contenido) {
           // Extraer el objeto de persona del contenido
@@ -64,7 +64,7 @@ const EditPersona = () => {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost/projects/PDO/personas/api.php?apicall=updatepersona&id_persona=${id_persona}`,
+        `http://localhost/project1/src/api/PDO/personas/api.php?apicall=updatepersona&id_persona=${id_persona}`,
         form
       );
       navigate("/Personas");
