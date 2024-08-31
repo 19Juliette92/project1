@@ -2,9 +2,9 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once './PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
+require_once __DIR__ . '/../../src/api/PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
 
-class PruebasSolas extends TestCase
+class readTestPersonas extends TestCase
 {
     private $pdo;
     private $datos;
@@ -59,3 +59,5 @@ class PruebasSolas extends TestCase
         $this->assertTrue($found);
     }
 }
+
+// ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/personas/readTestPersonas.php --colors

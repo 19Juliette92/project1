@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once './PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
+require_once __DIR__ . '/../../src/api/PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
 
 class UpdateTestPersonas extends TestCase
 {
@@ -30,7 +30,7 @@ class UpdateTestPersonas extends TestCase
             'num_doc' => '1234567890',  // Nuevo num_doc
             'nombres' => 'Carlos Andres',
             'apellidos' => 'Gomez Mejia',
-            'genero' => 'M',
+            'genero' => 'Masculino',
             'email' => 'carlos.andres@example.com',
             'telefono' => '3109876543'
         ];
@@ -57,4 +57,4 @@ class UpdateTestPersonas extends TestCase
         $this->assertEquals($datosActualizados['telefono'], $persona['telefono']);
     }
 }
-//./vendor/bin/phpunit --bootstrap vendor/autoload.php test/updateTestPersonas.php --colors
+//./vendor/bin/phpunit --bootstrap vendor/autoload.php test/personas/updateTestPersonas.php --colors
