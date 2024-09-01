@@ -4,10 +4,11 @@ use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../../src/api/PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
 
-class DeleteTestPersonas extends TestCase
+class deleteTestPersonas extends TestCase
 {
     private $pdo;
     private $datos;
+    private $id_persona_existente = 4; // Cambia este valor por un ID que sepas que existe en tu base de datos
 
     protected function setUp(): void
     {
@@ -21,45 +22,28 @@ class DeleteTestPersonas extends TestCase
 
     public function testDeletePersonaModel()
     {
-        // Datos de prueba para insertar un nuevo registro
-        $datosModel = [
-            'tipo_persona' => 'TP001',
-            'tip_doc' => 'CC',
-            'num_doc' => '1234567890',
-            'nombres' => 'Carlos Andres',
-            'apellidos' => 'Gomez Mejia',
-            'genero' => 'Masculino',
-            'email' => 'carlos.andres@example.com',
-            'telefono' => '3109876543'
-        ];
         $tabla = 'personas';
 
-        // Inserta un nuevo registro
-        $this->datos->createPersonaModel($datosModel, $tabla);
-
-        // Obtiene el ID del registro recién insertado
-        $stmt = $this->pdo->prepare("SELECT id_persona FROM $tabla WHERE num_doc = :num_doc");
-        $stmt->execute([':num_doc' => $datosModel['num_doc']]);
-        $persona = $stmt->fetch(PDO::FETCH_ASSOC);
-
         // Verifica que el registro existe antes de la eliminación
-        $this->assertNotFalse($persona);
-        $id_persona = $persona['id_persona'];
+        $stmt = $this->pdo->prepare("SELECT * FROM $tabla WHERE id_persona = :id_persona");
+        $stmt->execute([':id_persona' => $this->id_persona_existente]);
+        $persona = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->assertNotFalse($persona, "El registro con id_persona {$this->id_persona_existente} no existe.");
 
         // Llama al método para eliminar el registro
-        $result = $this->datos->deletePersonaModel($tabla, $id_persona);
+        $result = $this->datos->deletePersonaModel($tabla, $this->id_persona_existente);
 
         // Verifica que el método devuelva true
-        $this->assertTrue($result);
+        $this->assertTrue($result, "No se pudo eliminar el registro con id_persona {$this->id_persona_existente}.");
 
         // Verifica que el registro ya no exista en la base de datos
         $stmt = $this->pdo->prepare("SELECT * FROM $tabla WHERE id_persona = :id_persona");
-        $stmt->execute([':id_persona' => $id_persona]);
+        $stmt->execute([':id_persona' => $this->id_persona_existente]);
         $personaEliminada = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Verifica que la consulta no haya devuelto ningún registro
-        $this->assertFalse($personaEliminada);
+        $this->assertFalse($personaEliminada, "El registro con id_persona {$this->id_persona_existente} todavía existe.");
     }
 }
 
-// ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/personas/deleteTestPersonas.php --colors
+// Ejecuta la prueba con: ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/personas/deleteTestPersonas.php --colors

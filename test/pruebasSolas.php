@@ -2,12 +2,13 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once './PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
+require_once __DIR__ . '/../src/api/PDO/personas/modelojson.php'; // Asegúrate de incluir el archivo correcto con la clase modelojson
 
-class PruebasSolas extends TestCase
+class pruebasSolas extends TestCase
 {
     private $pdo;
     private $datos;
+    private $id_persona_existente = 4; // Cambia este valor por un ID que sepas que existe en tu base de datos
 
     protected function setUp(): void
     {
@@ -19,43 +20,30 @@ class PruebasSolas extends TestCase
         $this->datos = new Datos($this->pdo);
     }
 
-    public function testReadPersonaModelByNumDoc()
+    public function testDeletePersonaModel()
     {
-        // El número de documento que queremos leer
-        $num_doc = '1234567890'; 
-
         $tabla = 'personas';
 
-        // Llama al método para leer el registro con el num_doc específico
-        $result = $this->datos->readPersonaModel($tabla, $num_doc); // Pasar $num_doc aquí
+        // Verifica que el registro existe antes de la eliminación
+        $stmt = $this->pdo->prepare("SELECT * FROM $tabla WHERE id_persona = :id_persona");
+        $stmt->execute([':id_persona' => $this->id_persona_existente]);
+        $persona = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->assertNotFalse($persona, "El registro con id_persona {$this->id_persona_existente} no existe.");
 
-        // Verifica que el método devuelva un array y que contenga el registro correcto
-        $this->assertIsArray($result);
-        $this->assertNotEmpty($result);
+        // Llama al método para eliminar el registro
+        $result = $this->datos->deletePersonaModel($tabla, $this->id_persona_existente);
 
-        // Busca el registro con el num_doc especificado en los resultados
-        $found = false;
-        foreach ($result as $persona) {
-            if ($persona['num_doc'] === $num_doc) {
-                $found = true;
+        // Verifica que el método devuelva true
+        $this->assertTrue($result, "No se pudo eliminar el registro con id_persona {$this->id_persona_existente}.");
 
-                // Depuración: Muestra los datos recuperados
-                var_dump($persona); 
+        // Verifica que el registro ya no exista en la base de datos
+        $stmt = $this->pdo->prepare("SELECT * FROM $tabla WHERE id_persona = :id_persona");
+        $stmt->execute([':id_persona' => $this->id_persona_existente]);
+        $personaEliminada = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                // Verifica que los datos sean correctos
-                $this->assertEquals('TP001', $persona['tipo_persona']);
-                $this->assertEquals('CC', $persona['tip_doc']);
-                $this->assertEquals($num_doc, $persona['num_doc']);
-                $this->assertEquals('Carlos Andres', $persona['nombres']);
-                $this->assertEquals('Gomez Mejia', $persona['apellidos']);
-                $this->assertEquals('M', $persona['genero']);
-                $this->assertEquals('carlos.andres@example.com', $persona['email']);
-                $this->assertEquals('3109876543', $persona['telefono']);
-                break;
-            }
-        }
-
-        // Verifica que el registro haya sido encontrado
-        $this->assertTrue($found);
+        // Verifica que la consulta no haya devuelto ningún registro
+        $this->assertFalse($personaEliminada, "El registro con id_persona {$this->id_persona_existente} todavía existe.");
     }
 }
+
+// Ejecuta la prueba con: ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/personas/deleteTestPersonas.php --colors
