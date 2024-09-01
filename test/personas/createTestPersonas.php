@@ -67,3 +67,5 @@ class CreateTestPersonas extends TestCase
         $this->assertEquals($countBefore + 1, $countAfter, "El número de registros no ha aumentado en 1.");
     }
 }
+
+//./vendor/bin/phpunit --bootstrap endor/autoload.php test/personas/CreateTestPersonas.php --colors

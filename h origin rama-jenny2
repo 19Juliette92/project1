@@ -1,0 +1,109 @@
+[33mcommit 545ebac2d481c20f5faba8d48a81467588aebaa2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mrama-jenny2[m[33m, [m[1;31morigin/rama-Angie[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sun Sep 1 12:59:11 2024 -0500
+
+    modificaciones en las pruebas unitarias
+
+[33mcommit aac47791ba619b2f4607377d0ca321c9e421a17c[m[33m ([m[1;31morigin/rama-jenny2[m[33m)[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sat Aug 31 20:50:44 2024 -0500
+
+    Prueba unitaria delete-personas funcionando
+
+[33mcommit e26b9aae74141f995a5f77a2cc2984e438b71d1a[m
+Merge: 66afb81 7fbb031
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sat Aug 31 14:22:17 2024 -0500
+
+    Merge branch 'rama-Angie'
+
+[33mcommit 7fbb0312870f8fc7329f3dec43d7ee9d89adadd9[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sat Aug 31 12:22:12 2024 -0500
+
+    Pruebas unitarias personas
+
+[33mcommit d94f54d224939ea9ebb265a3d3d567f041a3008e[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sun Aug 11 09:51:58 2024 -0500
+
+    Subiendo pruebas unitarias
+
+[33mcommit 66afb8126867ab93a1bcbe8f55360620d82fd5b0[m
+Merge: 32c7ad6 4a0be64
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sat Jun 22 08:56:41 2024 -0500
+
+    Merge branch 'rama-Angie'
+
+[33mcommit 4a0be6447ec5fd49ec0bf30116c4cb6464f7592b[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Fri Jun 21 19:15:12 2024 -0500
+
+    Se agrega paginas estacionamientos, usuarios y footer
+
+[33mcommit 32c7ad6c04d1050f625f8dbc987ff3eab6ee5a18[m
+Author: FabHer <fhernandez26@soy.sena.ed.co>
+Date:   Wed Jun 19 22:52:41 2024 -0500
+
+    Actualizacion del README con informacion relevante
+
+[33mcommit 84a7973035124183b297d0ade46d058583b6eb8e[m
+Author: FabHer <fhernandez26@soy.sena.ed.co>
+Date:   Wed Jun 19 22:49:05 2024 -0500
+
+    Actualizacion del README con informacion relevante
+
+[33mcommit 852670847b466dfff7f28cd2c0d447a17958a074[m
+Author: FabHer <fhernandez26@soy.sena.ed.co>
+Date:   Wed Jun 19 22:46:59 2024 -0500
+
+    Actualizacion del README con informacion relevante
+
+[33mcommit f78b42d228cf27a7d6a067fc5fe3ea15d910f6da[m
+Author: FabHer <fhernandez26@soy.sena.ed.co>
+Date:   Wed Jun 19 22:26:45 2024 -0500
+
+    Actualizacion del README con informacion relevante
+
+[33mcommit 14fc1d9d05276e09a83dd86cbee7e396858c2e2a[m
+Author: FabHer <fhernandez26@soy.sena.ed.co>
+Date:   Wed Jun 19 22:23:05 2024 -0500
+
+    Actualizacion del README con informacion relevante
+
+[33mcommit a422d19e84a0be6c31da23fc69db7316b40465ed[m
+Author: FabHer <fhernandez26@soy.sena.ed.co>
+Date:   Wed Jun 19 22:14:29 2024 -0500
+
+    Actualizacion del README con informacion relevante
+
+[33mcommit 55b5871b35e68ab4fa8a682a58344f783f97f903[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Wed Jun 19 15:34:53 2024 -0500
+
+    Queda funcionando personas, inmuebles y vehículos
+
+[33mcommit f7dd7159d7f50791aae3739f1ab10983de259bbc[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sat Jun 15 14:57:34 2024 -0500
+
+    actualizacion 1 Angie
+
+[33mcommit be7567273bcbd048d35d90d3366041458d0da168[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Thu Jun 6 22:34:41 2024 -0500
+
+    Se agrega menú de navegación, con sus estilos
+
+[33mcommit d40c6a78ba6700746b3378e487319fc49ebec8ef[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Wed Jun 5 22:33:43 2024 -0500
+
+    Actualización componente Header estilos y estructura
+
+[33mcommit b7d8c3d3971f9a4c5a1507c004c3dfbc13476534[m
+Author: 19Juliette92 <angiej_sanchezp@soy.sena.edu.co>
+Date:   Sun Jun 2 12:47:31 2024 -0500
+
+    intelligate_vitereact.github.io
