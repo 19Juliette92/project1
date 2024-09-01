@@ -92,44 +92,55 @@ class Datos extends Database
     try {
         $this->getConnection()->beginTransaction();
 
-        // 1. Eliminar registros en 'accesos' que dependen de 'vehiculos'
+        // Elimina los registros relacionados en la tabla `accesos` que dependen de `vehiculos`
         $stmt = $this->getConnection()->prepare("DELETE FROM accesos WHERE placa IN (SELECT placa FROM vehiculos WHERE id_conductor = :id_persona)");
         $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
         $stmt->execute();
 
-        // Eliminar registros en 'accesos' que dependen de 'estacionamientos'
+        // Elimina los registros relacionados en la tabla `estacionamientos` que dependen de `vehiculos`
+        $stmt = $this->getConnection()->prepare("DELETE FROM estacionamientos WHERE placa IN (SELECT placa FROM vehiculos WHERE id_conductor = :id_persona)");
+        $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Elimina los registros relacionados en la tabla `accesos` que dependen de `estacionamientos`
         $stmt = $this->getConnection()->prepare("DELETE FROM accesos WHERE id_estacionamiento IN (SELECT id_estacionamiento FROM estacionamientos WHERE id_titular = :id_persona)");
         $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
         $stmt->execute();
 
-        // 2. Eliminar registros en 'vehiculos'
+        // Elimina los registros relacionados en la tabla `accesos` que dependen de `personas`
+        $stmt = $this->getConnection()->prepare("DELETE FROM accesos WHERE id_persona = :id_persona");
+        $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Elimina los registros relacionados en la tabla `vehiculos`
         $stmt = $this->getConnection()->prepare("DELETE FROM vehiculos WHERE id_conductor = :id_persona");
         $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
         $stmt->execute();
 
-        // 3. Eliminar registros en 'estacionamientos' que dependen de 'inmuebles'
+        // Obtén todos los id_inmueble asociados con la persona para eliminarlos después de los estacionamientos
         $stmt = $this->getConnection()->prepare("SELECT id_inmueble FROM inmuebles WHERE id_titular = :id_persona");
         $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
         $stmt->execute();
         $inmuebles = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
+        // Elimina registros relacionados en la tabla `estacionamientos` que dependen de `inmuebles`
         foreach ($inmuebles as $id_inmueble) {
             $stmt = $this->getConnection()->prepare("DELETE FROM estacionamientos WHERE id_inmueble = :id_inmueble");
             $stmt->bindParam(':id_inmueble', $id_inmueble, PDO::PARAM_INT);
             $stmt->execute();
         }
 
-        // Eliminar registros en 'estacionamientos' que dependen de 'personas'
+        // Elimina los registros relacionados en la tabla `estacionamientos` que dependen de `personas`
         $stmt = $this->getConnection()->prepare("DELETE FROM estacionamientos WHERE id_titular = :id_persona");
         $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
         $stmt->execute();
 
-        // 4. Eliminar registros en 'inmuebles'
+        // Elimina los registros relacionados en la tabla `inmuebles`
         $stmt = $this->getConnection()->prepare("DELETE FROM inmuebles WHERE id_titular = :id_persona");
         $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
         $stmt->execute();
 
-        // 5. Finalmente, eliminar el registro en 'personas'
+        // Finalmente, elimina el registro de la tabla `personas`
         $stmt = $this->getConnection()->prepare("DELETE FROM $tabla WHERE id_persona = :id_persona");
         $stmt->bindParam(':id_persona', $id_persona, PDO::PARAM_INT);
         $stmt->execute();

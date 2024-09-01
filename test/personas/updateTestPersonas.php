@@ -21,18 +21,18 @@ class UpdateTestPersonas extends TestCase
 
     public function testUpdatePersonaModel()
     {
-        $id_persona = 2; // ID del registro que vamos a modificar
+        $id_persona = 11; // ID del registro que vamos a modificar
 
         // Datos actualizados para el registro existente
         $datosActualizados = [
-            'tipo_persona' => 'TP001',
+            'tipo_persona' => 'TP002',
             'tip_doc' => 'CC',
-            'num_doc' => '1234567890',  // Nuevo num_doc
-            'nombres' => 'Carlos Andres',
-            'apellidos' => 'Gomez Mejia',
+            'num_doc' => '369258147', // Asegúrate de que este num_doc sea único
+            'nombres' => 'Sebastian',
+            'apellidos' => 'Cortes',
             'genero' => 'Masculino',
-            'email' => 'carlos.andres@example.com',
-            'telefono' => '3109876543'
+            'email' => 'sebas@example.com',
+            'telefono' => '3225555555'
         ];
         $tabla = 'personas';
 
