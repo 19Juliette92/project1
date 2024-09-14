@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../src/api/PDO/personas/modelojson.php'; // Incluye el archivo con la clase modelojson
 
-class pruebasSolas extends TestCase
+class TestPersonas extends TestCase
 {
     private $pdo;
     private $datos;
@@ -111,17 +111,17 @@ class pruebasSolas extends TestCase
     // 3. Update
     public function testUpdatePersonaModel()
     {
-        $id_persona = 13; // ID del registro que vamos a modificar
+        $id_persona = 5; // ID del registro que vamos a modificar
 
         // Datos actualizados para el registro existente
         $datosActualizados = [
-            'tipo_persona' => 'TP002',
+            'tipo_persona' => 'TP001',
             'tip_doc' => 'CC',
             'num_doc' => '1597852369', // Asegúrate de que este num_doc sea único
             'nombres' => 'Geraldine',
             'apellidos' => 'Salazar',
             'genero' => 'Femenino',
-            'email' => 'geraldine@example.com',
+            'email' => 'geraldine11@example.com',
             'telefono' => '3018888888'
         ];
         $tabla = 'personas';
@@ -152,7 +152,7 @@ class pruebasSolas extends TestCase
     public function testDeletePersonaModel()
     {
         $tabla = 'personas';
-        $id_persona = 13; // Reemplaza con un ID válido de tu base de datos para la prueba
+        $id_persona = 5; // Reemplaza con un ID válido de tu base de datos para la prueba
 
         // Realiza un COUNT de registros antes de la eliminación
         $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM $tabla");

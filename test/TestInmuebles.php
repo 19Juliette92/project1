@@ -26,24 +26,31 @@ class TestInmuebles extends TestCase
         // Contar registros antes de la inserción
         $stmt = $this->pdo->query("SELECT COUNT(*) as total FROM $tabla");
         $countBefore = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
-        print "Count before: $countBefore\n"; // Imprimir el conteo antes de la inserción
+        print "Count before: $countBefore\n";
 
         // Datos de prueba con un id_titular único
         $datosModel = [
-            'bloque' => '11',
-            'apto' => '303',
-            'id_titular' => '12', // Asegúrate de que este id_titular sea único
+            'bloque' => '16',
+            'apto' => '302',
+            'id_titular' => '2',
         ];
 
         // Llama al método para insertar el registro
         $result = $this->datos->createInmuebleModel($datosModel, $tabla);
 
-        // Verifica que el método devuelva true
-        $this->assertTrue($result, "La inserción del registro falló, registro ya creado.");
+        // Verifica que la inserción fue exitosa
+        $this->assertTrue($result['success'], "La inserción del registro falló.");
+
+        // Obtener el id_inmueble generado automáticamente por la inserción
+        $id_inmueble = $result['id_inmueble'];
+        print "ID Inmueble: $id_inmueble\n"; // Imprimir el id_inmueble generado
+
+        // Verifica que el id_inmueble no sea falso o nulo
+        $this->assertNotEmpty($id_inmueble, "El id_inmueble generado no es válido.");
 
         // Preparar la consulta para verificar que los datos se hayan insertado en la base de datos
-        $stmt = $this->pdo->prepare("SELECT * FROM $tabla WHERE id_titular = :id_titular");
-        $stmt->execute([':id_titular' => $datosModel['id_titular']]);
+        $stmt = $this->pdo->prepare("SELECT * FROM $tabla WHERE id_inmueble = :id_inmueble");
+        $stmt->execute([':id_inmueble' => $id_inmueble]);
         $inmueble = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->assertNotFalse($inmueble, "El registro no se encontró en la base de datos.");
@@ -54,15 +61,16 @@ class TestInmuebles extends TestCase
         // Contar registros después de la inserción
         $stmt = $this->pdo->query("SELECT COUNT(*) as total FROM $tabla");
         $countAfter = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
-        print "Count after: $countAfter\n"; // Imprimir el conteo después de la inserción
+        print "Count after: $countAfter\n";
 
         // Verificar que el conteo haya incrementado en 1
         $this->assertEquals($countBefore + 1, $countAfter, "El número de registros no ha aumentado en 1.");
     }
+    
 
     public function testReadInmuebleModelByNumDoc()
     {
-        $id_inmueble = '6';
+        $id_inmueble = '5';
         $tabla = 'inmuebles';
 
         // Llama al método para leer el registro con el id_inmueble específico
@@ -82,9 +90,9 @@ class TestInmuebles extends TestCase
                 var_dump($inmueble);
 
                 // Verifica que los datos sean correctos
-                $this->assertEquals('11', $inmueble['bloque']);
-                $this->assertEquals('403', $inmueble['apto']);
-                $this->assertEquals('11', $inmueble['id_titular']);
+                $this->assertEquals('16', $inmueble['bloque']);
+                $this->assertEquals('302', $inmueble['apto']);
+                $this->assertEquals('2', $inmueble['id_titular']);
                 break;
             }
         }
@@ -95,13 +103,13 @@ class TestInmuebles extends TestCase
 
     public function testUpdateInmuebleModel()
     {
-        $id_inmueble = 6; // ID del registro que vamos a modificar
+        $id_inmueble = 5; // ID del registro que vamos a modificar
 
         // Datos actualizados para el registro existente
         $datosActualizados = [
-            'bloque' => '11',
-            'apto' => '101',
-            'id_titular' => '11',
+            'bloque' => '16',
+            'apto' => '303',
+            'id_titular' => '2',
         ];
         $tabla = 'inmuebles';
 
@@ -124,7 +132,7 @@ class TestInmuebles extends TestCase
     public function testDeleteInmuebleModel()
     {
         $tabla = 'inmuebles';
-        $id_inmueble = 9; // Reemplaza con un ID válido de tu base de datos para la prueba
+        $id_inmueble = 5; // Reemplaza con un ID válido de tu base de datos para la prueba
 
         // Realiza un COUNT de registros antes de la eliminación
         $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM $tabla");

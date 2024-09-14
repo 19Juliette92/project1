@@ -24,9 +24,9 @@ class TestEstacionamientos extends TestCase {
         // Datos de prueba con un no_estacionamiento único
         $datosModel = [
             'no_estacionamiento' => '1202',
-            'id_titular' => '12',
-            'placa' => 'GHI321',
-            'id_inmueble' => '12',
+            'id_titular' => '2',
+            'placa' => 'ABC123',
+            'id_inmueble' => '4',
             'id_usuario' => '2'
         ];
 
@@ -64,7 +64,7 @@ class TestEstacionamientos extends TestCase {
     }
 
     public function testReadEstacionamientoModelByNumDoc() {
-        $no_estacionamiento = '1101'; 
+        $no_estacionamiento = '1202'; 
         $tabla = 'estacionamientos';
 
         $result = $this->datos->readEstacionamientoModel($tabla, $no_estacionamiento); 
@@ -79,9 +79,9 @@ class TestEstacionamientos extends TestCase {
                 var_dump($estacionamiento); 
 
                 $this->assertEquals($no_estacionamiento, $estacionamiento['no_estacionamiento']);
-                $this->assertEquals('11', $estacionamiento['id_titular']);
-                $this->assertEquals('LOU258', $estacionamiento['placa']);
-                $this->assertEquals('6', $estacionamiento['id_inmueble']);
+                $this->assertEquals('2', $estacionamiento['id_titular']);
+                $this->assertEquals('ABC123', $estacionamiento['placa']);
+                $this->assertEquals('4', $estacionamiento['id_inmueble']);
                 $this->assertEquals('2', $estacionamiento['id_usuario']);
                 break;
             }
@@ -91,13 +91,13 @@ class TestEstacionamientos extends TestCase {
     }
 
     public function testUpdateEstacionamientoModel() {
-        $id_estacionamiento = 9; 
+        $id_estacionamiento = 4; 
 
         $datosActualizados = [
-            'no_estacionamiento' => '1301',
-            'id_titular' => '14',
-            'placa' => 'GHI321',
-            'id_inmueble' => '13',
+            'no_estacionamiento' => '1202',
+            'id_titular' => '2',
+            'placa' => 'ABC123',
+            'id_inmueble' => '2',
             'id_usuario' => '2'
         ];
         $tabla = 'estacionamientos';
@@ -118,7 +118,7 @@ class TestEstacionamientos extends TestCase {
 
     public function testDeleteEstacionamientoModel() {
         $tabla = 'estacionamientos';
-        $id_estacionamiento = 17;
+        $id_estacionamiento = 4;
 
         $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM $tabla");
         $stmt->execute();
@@ -149,3 +149,5 @@ class TestEstacionamientos extends TestCase {
         $this->assertFalse($estacionamientoEliminada, "El registro con id_estacionamiento $id_estacionamiento no debería existir después de la eliminación");
     }
 }
+
+//./vendor/bin/phpunit --bootstrap vendor/autoload.php test/TestEstacionamientos.php --colors

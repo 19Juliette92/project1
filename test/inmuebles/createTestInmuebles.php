@@ -24,30 +24,31 @@ class CreateTestInmuebles extends TestCase
         // Contar registros antes de la inserción
         $stmt = $this->pdo->query("SELECT COUNT(*) as total FROM $tabla");
         $countBefore = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
-        print "Count before: $countBefore\n"; // Imprimir el conteo antes de la inserción
+        print "Count before: $countBefore\n";
 
         // Datos de prueba con un id_titular único
         $datosModel = [
             'bloque' => '4',
             'apto' => '202',
-            'id_titular' => '12', // Asegúrate de que este id_titular sea único
+            'id_titular' => '2',
         ];
 
         // Llama al método para insertar el registro
         $result = $this->datos->createInmuebleModel($datosModel, $tabla);
 
-        // Verifica que el método devuelva true
-        $this->assertTrue($result, "La inserción del registro falló, registro ya creado.");
+        // Verifica que la inserción fue exitosa
+        $this->assertTrue($result['success'], "La inserción del registro falló.");
 
         // Obtener el id_inmueble generado automáticamente por la inserción
-        $id_inmueble = $this->pdo->lastInsertId();
+        $id_inmueble = $result['id_inmueble'];
+        print "ID Inmueble: $id_inmueble\n"; // Imprimir el id_inmueble generado
 
         // Verifica que el id_inmueble no sea falso o nulo
         $this->assertNotEmpty($id_inmueble, "El id_inmueble generado no es válido.");
 
         // Preparar la consulta para verificar que los datos se hayan insertado en la base de datos
         $stmt = $this->pdo->prepare("SELECT * FROM $tabla WHERE id_inmueble = :id_inmueble");
-        $stmt->execute([':id_inmueble' => $id_inmueble]); // Usa el valor de id_inmueble generado
+        $stmt->execute([':id_inmueble' => $id_inmueble]);
         $inmueble = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->assertNotFalse($inmueble, "El registro no se encontró en la base de datos.");
@@ -58,9 +59,10 @@ class CreateTestInmuebles extends TestCase
         // Contar registros después de la inserción
         $stmt = $this->pdo->query("SELECT COUNT(*) as total FROM $tabla");
         $countAfter = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
-        print "Count after: $countAfter\n"; // Imprimir el conteo después de la inserción
+        print "Count after: $countAfter\n";
 
         // Verificar que el conteo haya incrementado en 1
         $this->assertEquals($countBefore + 1, $countAfter, "El número de registros no ha aumentado en 1.");
     }
 }
+// ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/inmuebles/CreateTestInmuebles.php --colors

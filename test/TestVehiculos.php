@@ -32,7 +32,7 @@ class TestVehiculos extends TestCase
         $datosModel = [
 
             'placa' => 'MNO456',
-            'id_conductor' => '11',
+            'id_conductor' => '3',
             'marca' => 'Honda',
             'modelo' => '2023',
             'color' => 'Negro',
@@ -69,7 +69,7 @@ class TestVehiculos extends TestCase
     public function testReadVehiculoModelByNumDoc()
     {
         // El número de documento que queremos leer
-        $placa = 'LOU258';
+        $placa = 'MNO456';
 
         $tabla = 'vehiculos';
 
@@ -91,10 +91,10 @@ class TestVehiculos extends TestCase
 
                 // Verifica que los datos sean correctos
                 $this->assertEquals($placa, $vehiculo['placa']);
-                $this->assertEquals('12', $vehiculo['id_conductor']);
+                $this->assertEquals('3', $vehiculo['id_conductor']);
                 $this->assertEquals('Honda', $vehiculo['marca']);
-                $this->assertEquals('2019', $vehiculo['modelo']);
-                $this->assertEquals('Blanco', $vehiculo['color']);
+                $this->assertEquals('2023', $vehiculo['modelo']);
+                $this->assertEquals('Negro', $vehiculo['color']);
                 $this->assertEquals('TV003', $vehiculo['tipo_vehiculo']);
                 break;
             }
@@ -106,16 +106,16 @@ class TestVehiculos extends TestCase
 
     public function testUpdateVehiculoModel()
     {
-        $placa = 'XYZ789'; // ID del registro que vamos a modificar
+        $placa = 'MNO456'; // ID del registro que vamos a modificar
 
         // Datos actualizados para el registro existente
         $datosActualizados = [
-            'placa' => 'XYZ789',
-            'id_conductor' => '11',
-            'marca' => 'Renault',
+            'placa' => 'MNO456',
+            'id_conductor' => '1',
+            'marca' => 'Honda',
             'modelo' => '2021',
-            'color' => 'Azul',
-            'tipo_vehiculo' => 'TV001',
+            'color' => 'Negro',
+            'tipo_vehiculo' => 'TV003',
         ];
         $tabla = 'vehiculos';
 

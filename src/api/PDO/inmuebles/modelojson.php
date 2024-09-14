@@ -4,17 +4,27 @@ require_once 'database.php';
 class Datos extends Database
 {
 	public function createInmuebleModel($datosModel, $tabla)
-	{
-		$stmt = $this->getConnection()->prepare("INSERT INTO $tabla (bloque, apto, id_titular) VALUES (:bloque, :apto, :id_titular)");
-		$stmt->execute([
-			':bloque' => $datosModel['bloque'],
-			':apto' => $datosModel['apto'],
-			':id_titular' => $datosModel['id_titular']
-			
-		]);
+{
+    $stmt = $this->getConnection()->prepare("INSERT INTO $tabla (bloque, apto, id_titular) VALUES (:bloque, :apto, :id_titular)");
+    $stmt->execute([
+        ':bloque' => $datosModel['bloque'],
+        ':apto' => $datosModel['apto'],
+        ':id_titular' => $datosModel['id_titular']
+    ]);
 
-		return $stmt->rowCount() > 0;
-	}
+    // Obtener el ID generado
+    $id_inmueble = $this->getConnection()->lastInsertId();
+
+    // Verificar si la inserción fue exitosa
+    $inserted = $stmt->rowCount() > 0;
+
+    // Devolver el resultado y el ID generado
+    return [
+        'success' => $inserted,
+        'id_inmueble' => $id_inmueble
+    ];
+}
+
 
 	public function readInmuebleModel($tabla, $id_inmueble = null)
 	{
