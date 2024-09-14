@@ -68,4 +68,4 @@ class CreateTestPersonas extends TestCase
     }
 }
 
-// ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/personas/CreateTestPersonas.php --colors
+//./vendor/bin/phpunit --bootstrap endor/autoload.php test/personas/CreateTestPersonas.php --colors
