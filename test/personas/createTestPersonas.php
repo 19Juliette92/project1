@@ -28,14 +28,14 @@ class CreateTestPersonas extends TestCase
 
         // Datos de prueba con un num_doc único
         $datosModel = [
-            'tipo_persona' => 'TP001',
-            'tip_doc' => 'CC',
-            'num_doc' => '369258147', // Asegúrate de que este num_doc sea único
-            'nombres' => 'Sebastian',
-            'apellidos' => 'Cortes',
-            'genero' => 'Masculino',
-            'email' => 'sebas@example.com',
-            'telefono' => '3225555555'
+            'tipo_persona' => 'TP003',
+            'tip_doc' => 'CE',
+            'num_doc' => '963741852', // Asegúrate de que este num_doc sea único
+            'nombres' => 'María',
+            'apellidos' => 'González',
+            'genero' => 'Femenino',
+            'email' => 'maria@example.com',
+            'telefono' => '3124567890'
         ];
 
         // Llama al método para insertar el registro
@@ -45,7 +45,7 @@ class CreateTestPersonas extends TestCase
         $this->assertTrue($result, "La inserción del registro falló, registro ya creado.");
 
         // Verifica que los datos se hayan insertado en la base de datos
-        $stmt = $this->pdo->query("SELECT * FROM $tabla WHERE num_doc = '369258147'");
+        $stmt = $this->pdo->query("SELECT * FROM $tabla WHERE num_doc = '963741852'");
         $persona = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->assertNotFalse($persona, "El registro no se encontró en la base de datos.");
@@ -67,3 +67,5 @@ class CreateTestPersonas extends TestCase
         $this->assertEquals($countBefore + 1, $countAfter, "El número de registros no ha aumentado en 1.");
     }
 }
+
+// ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/personas/CreateTestPersonas.php --colors
