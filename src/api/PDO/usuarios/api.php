@@ -1,6 +1,7 @@
 <?php
 
 header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 require_once 'controllerjson.php';
@@ -11,7 +12,27 @@ $response = array();
 
 $db = new ControllerJson();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $apicall !== 'readusuario') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $apicall === 'login') {
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+
+    if ($data === null) {
+        $response = array(
+            'error' => true,
+            'message' => 'Error en el contenido JSON',
+        );
+    } else {
+        $user = $db->authenticateUserController($data['nombre_usuario'], $data['contrasena']);
+
+        if ($user) {
+            $response['error'] = false;
+            $response['contenido'] = $user;
+        } else {
+            $response['error'] = true;
+            $response['message'] = 'Credenciales inválidas';
+        }
+    }
+} elseif ($_SERVER['REQUEST_METHOD'] === 'POST' && $apicall !== 'login') {
     $json = file_get_contents('php://input');
     $data = json_decode($json, true);
 
@@ -108,7 +129,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $apicall !== 'readusuario') {
 }
 
 echo json_encode($response);
-
-
 ?>
-

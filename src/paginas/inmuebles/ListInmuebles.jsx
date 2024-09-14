@@ -38,10 +38,10 @@ const ListInmuebles = () => {
 
   return (
     <div className="contenedor-principal">
-      <div className="enlaces-crud">
-        <Link to="/Inmuebles/AddInmueble">Adicionar</Link>
-      </div>
+      <br />
+        <Link to="/Inmuebles/AddInmueble" className="enlaces-crud">Adicionar</Link>      
       <div className="contenedor-tabla">
+      <br />
         <table>
           <thead>
             <tr>

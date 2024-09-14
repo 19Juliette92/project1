@@ -1,0 +1,123 @@
+.contenedor_index {
+    margin: 7%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.caja_index {
+    /* border: 1px solid #011C40; */
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    background-color: #E2EBF0;
+}
+
+.titulo_index {
+    font-size: 24px;
+    color: #012340;
+    margin-bottom: 20px;
+}
+.logo {
+    width: 50%;
+    margin-bottom: 20px; 
+}
+.btn-ingresa, .btn-registro {
+  display: block;
+  width: 95%;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  background: #011C40;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-ingresa:hover, .btn-registro:hover {
+  background: #0056b3;
+}
+
+/* Estilos para el formulario de registro */
+
+/* Contenedor principal del formulario */
+.registro-container {
+    width: 350px;
+    padding: 20px;
+    background: #E0E9EE;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Estilos para la caja que contiene el formulario */
+  .caja-registro {
+    margin-bottom: 20px;
+  }
+
+  .logo{
+    margin: auto;
+    width: 200px;
+  }
+  
+  /* Estilos para el texto "Registrate" */
+  .registro-titulo {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos para los campos de entrada */
+  .caja {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para el botón de registro */
+  /* .submit {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background: #011C40;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .submit:hover {
+    background: #0056b3;
+  }
+
+  .registro-enlace a{
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background: #011C40;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .registro-enlace a:hover {
+    background: #0056b3;
+  } */
+
+  /* Estilos para el mensaje de error */
+  .mensaje-error {
+    color: #FF0000;
+    text-align: center;
+    font-size: 17px;
+  }
+  

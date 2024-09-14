@@ -39,10 +39,10 @@ const ListUsuarios = () => {
 
   return (
     <div className="contenedor-principal">
-      <div className="enlaces-crud">
-        <Link to="/Usuarios/AddUsuario">Adicionar</Link>
-      </div>
+      <br /> 
+        <Link to="/Usuarios/AddUsuario" className="enlaces-crud">Adicionar</Link>      
       <div className="contenedor-tabla">
+        <br />
         <table>
           <thead>
             <tr>
@@ -63,14 +63,6 @@ const ListUsuarios = () => {
                 <td>{usuario.fecha_creacion}</td>
                 <td>{usuario.estado}</td>
                 <td>
-                  <button
-                    onClick={() =>
-                      navigate(`/usuarios/edit/${usuario.id_usuario}`)
-                    }
-                    className="editar"
-                  >
-                    Editar
-                  </button>
                   <button
                     onClick={() => handleDelete(usuario.id_usuario)}
                     className="eliminar"

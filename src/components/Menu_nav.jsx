@@ -6,7 +6,7 @@ const Menu_nav = () => {
   return (
     <nav className="navegacion-principal">
       <ul>
-        <li><NavLink to="/">Inicio</NavLink></li>
+        <li><NavLink to="/home">Inicio</NavLink></li>
         <li><NavLink to="/personas">Personas</NavLink></li>
         <li><NavLink to="/inmuebles">Inmuebles</NavLink></li>
         <li><NavLink to="/vehiculos">Vehículos</NavLink></li>

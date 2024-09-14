@@ -60,6 +60,8 @@ const Home = () => {
                             <th>Apartamento</th>
                             <th>Placa del vehículo</th>
                             <th>Estacionamiento</th>
+                            <th>Acceso</th>
+                            <th>Fecha</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +74,8 @@ const Home = () => {
                                 <td>{row.apto}</td>
                                 <td>{row.placa}</td>
                                 <td>{row.no_estacionamiento}</td>
+                                <td>{row.nombre_tipo}</td>
+                                <td>{row.fecha_hora}</td>
                             </tr>
                         ))}
                     </tbody>

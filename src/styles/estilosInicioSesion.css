@@ -1,0 +1,83 @@
+  /* Contenedor Principal */
+  .login-page {
+    display: flex; /* Activa el modo Flexbox */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #f5f5f5; /* Color de fondo opcional */
+  }
+
+  .login-container {
+    width: 350px;
+    padding: 20px;
+    background: #E0E9EE;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra el contenido horizontalmente */
+
+  }
+  
+  /* Sección de la Marca */
+  .brand-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .brand-section .logo {
+    width: 200px; /* O el tamaño que prefieras para tu logo */
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos del Formulario */
+  .login-form .input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form .input-group label {
+    margin-bottom: 5px;
+    text-align: left; /* Alinea el texto del label a la izquierda */
+  }
+  
+  .login-form .input-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: inherit;
+  }
+  
+  /* Botón de Ingreso */
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #011C40;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    border-top: 10px;
+  }
+  
+  .login-btn:hover {
+    background: #3f51b5;
+  }
+  
+  .enlaces_inicio {
+    color: #011C40;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: color 0.3s;
+  }
+  
+  /* .login-container a:hover {
+    color: #0056b3;
+  } */
+  
+  /* Pequeños ajustes para mobiles */
+  @media (max-width: 400px) {
+    .login-container {
+      width: 90%;
+    }
+  }
+  

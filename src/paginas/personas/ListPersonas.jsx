@@ -39,10 +39,11 @@ const ListPersonas = () => {
 
   return (
     <div className="contenedor-principal">
-      <div className="enlaces-crud">
-        <Link to="/Personas/AddPersona">Adicionar</Link>
-      </div>
+      <br />        
+      <Link to="/Personas/AddPersona" className="enlaces-crud">Adicionar</Link>
+      
       <div className="contenedor-tabla">
+      <br /> 
         <table>
           <thead>
             <tr>

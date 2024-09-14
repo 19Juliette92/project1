@@ -61,6 +61,17 @@ class Datos extends Database
 
 		return $stmt->rowCount() > 0;
 	}
-}
 
-?>
+	public function authenticateUserModel($nombre_usuario, $contrasena, $tabla)
+	{
+		$stmt = $this->getConnection()->prepare("SELECT id_usuario, nombre_usuario, email, estado FROM $tabla WHERE nombre_usuario = :nombre_usuario AND contrasena = :contrasena");
+		$stmt->execute([
+			':nombre_usuario' => $nombre_usuario,
+			':contrasena' => $contrasena
+		]);
+
+		$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		return $user;
+	}
+}

@@ -41,10 +41,10 @@ const ListVehiculos = () => {
 
   return (
     <div className="contenedor-principal">
-      <div className="enlaces-crud">
-        <Link to="/Vehiculos/Addvehiculo">Adicionar</Link>
-      </div>
+      <br />
+        <Link to="/Vehiculos/Addvehiculo" className="enlaces-crud">Adicionar</Link>      
       <div className="contenedor-tabla">
+      <br />
         <table>
           <thead>
             <tr>

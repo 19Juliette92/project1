@@ -51,4 +51,9 @@ class ControllerJson
 	{
 		return $this->datos->deleteUsuarioModel("usuarios", $id_usuario);
 	}
+
+	public function authenticateUserController($nombre_usuario, $contrasena)
+	{
+		return $this->datos->authenticateUserModel($nombre_usuario, $contrasena, "usuarios");
+	}
 }

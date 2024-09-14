@@ -67,7 +67,7 @@ class Datos extends Database
 	public function deleteVehiculoModel($tabla, $placa)
 	{
 		$stmt = $this->getConnection()->prepare("DELETE FROM $tabla WHERE placa = :placa");
-		$stmt->bindParam(':placa', $placa, PDO::PARAM_INT);
+		$stmt->bindParam(':placa', $placa, PDO::PARAM_STR);
 		$stmt->execute();
 
 		return $stmt->rowCount() > 0;

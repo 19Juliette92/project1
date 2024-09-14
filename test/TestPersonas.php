@@ -183,3 +183,5 @@ class pruebasSolas extends TestCase
         $this->assertEquals($countBefore - 1, $countAfter, "El conteo de registros debería reducirse en 1 después de la eliminación");
     }
 }
+
+// ./vendor/bin/phpunit --bootstrap vendor/autoload.php test/TestPersonas.php --colors
